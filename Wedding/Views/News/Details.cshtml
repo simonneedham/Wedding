@@ -1,0 +1,35 @@
+﻿@model Wedding.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">PostContent</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostContent)
+    </div>
+
+    <div class="display-label">Updated</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Updated)
+    </div>
+
+    <div class="display-label">UserId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PostId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

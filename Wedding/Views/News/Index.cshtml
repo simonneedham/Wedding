@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Wedding.Models.Post>
+
+@{
+    ViewBag.Title = "News";
+}
+    <div class="container">
+        <div class = "sixteen columns">
+            <h2>News</h2>
+        </div>
+        <div class = "two columns">
+            @if (User.IsInRole("blogger"))
+            {
+                @Html.ActionLink("Create New", "Create")
+            }
+            else
+            {
+                <text>&nbsp;</text>
+            }
+        </div>
+        <div class="fourteen columns">&nbsp;</div>
+
+@foreach (var item in Model) {
+        <div class ="fourteen columns">
+            @Html.DisplayFor(modelItem => item.Title)
+        </div>
+        <div class ="two columns">
+            @if(User.IsInRole("blogger")) {
+                <a href="@Url.Action("edit", "news", new { id = item.PostId })" style="text-decoration: none;">
+                    <img alt="Edit" src="@Url.Content("~/Images/glyphicons_151_edit.png")"/>
+                </a>
+                <a href="@Url.Action("details", "news", new { id = item.PostId })" style="text-decoration: none;">
+                    <img alt="Details" src="@Url.Content("~/Images/glyphicons_157_show_lines.png")" />
+                </a>
+                <a href="@Url.Action("delete", "news", new { id = item.PostId })" style="text-decoration: none;">
+                    <img alt="Delete" src="@Url.Content("~/Images/glyphicons_016_bin.png")" />
+                </a>
+            } else {
+                <text>&nbsp;</text>
+            }
+        </div>
+        <div class = "sixteen columns">
+            @Html.DisplayFor(modelItem => item.PostContent)
+        </div>
+        <div class = "fourteen columns">Updated: @Html.DisplayFor(modelItem => item.Updated)&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.UserId)</div>
+        <div class = "two columns">&nbsp;</div>
+}
+    </div>
