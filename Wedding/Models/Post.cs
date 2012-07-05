@@ -8,6 +8,8 @@ namespace Wedding.Models
 {
     public class Post
     {
+        string _userName = string.Empty;
+
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PostId { get; set; }
 
@@ -17,9 +19,14 @@ namespace Wedding.Models
         [MaxLength, Required]
         public string PostContent { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed), DisplayFormat(DataFormatString="{0:dd-MMM-yyyy hh:mm tt}")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime Updated { get; set; }
 
-        public int UserId { get; set; }
+        [Required, StringLength(50)]
+        public string UserName
+        {
+            get { return _userName.ToLower(); }
+            set { _userName = value.ToLower(); }
+        }
     }
 }

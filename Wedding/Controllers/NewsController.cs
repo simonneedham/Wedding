@@ -17,8 +17,8 @@ namespace Wedding.Controllers
         // GET: /News/
         public ViewResult Index()
         {
-            var viewResult = View(_db.Posts.ToList());
-            return viewResult; //View(_db.Posts.ToList());
+            var viewResult = View(_db.Posts.ToList().OrderByDescending(p => p.Updated));
+            return viewResult; //View(_db.Posts.ToList());s
         }
 
         //
@@ -43,6 +43,9 @@ namespace Wedding.Controllers
         [HttpPost, Authorize(Roles="Blogger")]
         public ActionResult Create(Post post)
         {
+            post.UserName = User.Identity.Name;
+            post.Updated = DateTime.UtcNow;
+
             if (ModelState.IsValid)
             {
                 _db.Posts.Add(post);

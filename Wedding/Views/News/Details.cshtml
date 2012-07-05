@@ -1,35 +1,20 @@
 ﻿@model Wedding.Models.Post
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "News :: " + Model.Title;
 }
 
-<h2>Details</h2>
-
 <fieldset>
-    <legend>Post</legend>
-
-    <div class="display-label">Title</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Title)
-    </div>
-
-    <div class="display-label">PostContent</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.PostContent)
-    </div>
-
-    <div class="display-label">Updated</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Updated)
-    </div>
-
-    <div class="display-label">UserId</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.UserId)
+    <div class="container">
+        <div class="sixteen columns"><h4>@Html.DisplayFor(model => model.Title)</h4></div>
+        <div class="sixteen columns" style="border: 1px solid #000000">@this.Model.PostContent</div>
+        <div class="sixteen Columns">@Html.DisplayFor(model => model.UserName)&nbsp;&nbsp;@Html.DisplayFor(model => model.Updated)</div>
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.PostId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (User.IsInRole("blogger"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PostId })
+    }
+    @Html.ActionLink("Back", "Index")
 </p>

@@ -13,10 +13,8 @@ namespace Wedding.Controllers
 
         public ActionResult Index()
         {
-            //ViewBag.Message = "Welcome to ASP.NET MVC!";
-
-            return View(); ;
-            //return View("News", _db.Posts.ToList());
+            //return View();
+            return View("/Views/News/Index.cshtml", _db.Posts.ToList().OrderByDescending(p => p.Updated));
         }
 
         public ActionResult About()
