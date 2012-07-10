@@ -18,14 +18,14 @@ namespace Wedding.Controllers
         public ViewResult Index()
         {
             var viewResult = View(_db.Posts.ToList().OrderByDescending(p => p.Updated));
-            return viewResult; //View(_db.Posts.ToList());s
+            return viewResult;
         }
 
         //
         // GET: /News/Details/5
         public ViewResult Details(int id)
         {
-            Post post = _db.Posts.Find(id);
+            Post post = _db.Posts.Where(p => p.PostId == id).Include(p => p.Tags).SingleOrDefault();
             return View(post);
         }
 
@@ -74,8 +74,40 @@ namespace Wedding.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Entry(post).State = EntityState.Modified;
+                post.Updated = DateTime.UtcNow;
+
+                var databasePost = _db.Posts.Where(p => p.PostId == post.PostId).Include(p => p.Tags).SingleOrDefault();
+                _db.Entry(databasePost).CurrentValues.SetValues(post);
+
+                //append new tags
+                foreach (var updatedTag in post.Tags)
+                {
+                    var dbTag = databasePost.Tags.Where(t => t.Name == updatedTag.Name).SingleOrDefault();
+
+                    if (dbTag == null)
+                    {
+                        //New Tag not associated with post
+                        dbTag = _db.Tags.Where(t => t.Name == updatedTag.Name).SingleOrDefault();
+
+                        if (dbTag == null)
+                            dbTag = new Tag() { Name = updatedTag.Name };
+
+                        databasePost.Tags.Add(dbTag);
+                    }
+                }
+
+                //remove tags
+                foreach (var dbTag in databasePost.Tags.ToList())
+                {
+                    var updatedTag = post.Tags.Where(t => t.Name == dbTag.Name).SingleOrDefault();
+
+                    if (updatedTag == null)
+                        databasePost.Tags.Remove(dbTag);
+                }
+
+                _db.Entry(databasePost).State = EntityState.Modified;
                 _db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View(post);

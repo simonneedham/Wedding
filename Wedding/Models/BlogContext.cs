@@ -10,6 +10,7 @@ namespace Wedding.Models
     public class BlogContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Tag> Tags { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder dbModelBuilder)
         {
