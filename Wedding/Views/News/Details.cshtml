@@ -1,7 +1,7 @@
 ﻿@model Wedding.Models.Post
 
 @{
-    ViewBag.Title = "News :: " + Model.Title;
+    ViewBag.Title = "S&H Wedding :: News :: " + Model.Title;
 }
 
 <fieldset>
@@ -9,17 +9,20 @@
     <div class="container">
         <div class="sixteen columns"><h4>@Html.DisplayFor(model => model.Title)</h4></div>
         <div class="sixteen columns" style="border: 1px solid #000000">@this.Model.PostContent</div>
+        <div class="sixteen columns">@Html.DisplayFor(t => Model.Tags, "Tag")</div>
+        <div class="sixteen columns">@Html.DisplayFor(model => model.UserName)&nbsp;&nbsp;@Html.DisplayFor(model => model.Updated)</div>
         <div class="sixteen columns">
-            @Html.DisplayFor(t => Model.Tags, "templateName")
-            //use a template to render ActionLink Tags for each Tag
+        @if (User.IsInRole("blogger"))
+        {
+            <a href="@Url.Action("edit", "news", new { id = Model.PostId })" style="text-decoration: none;">
+                <img alt="Edit" src="@Url.Content("~/Images/glyphicons_151_edit.png")"/>
+            </a>
+            <a href="@Url.Action("delete", "news", new { id = Model.PostId })" style="text-decoration: none;">
+                <img alt="Delete" src="@Url.Content("~/Images/glyphicons_016_bin.png")" />
+            </a>
+        }
+        <p>@Html.ActionLink("Back", "Index")</p>
         </div>
-        <div class="sixteen Columns">@Html.DisplayFor(model => model.UserName)&nbsp;&nbsp;@Html.DisplayFor(model => model.Updated)</div>
     </div>
 </fieldset>
-<p>
-    @if (User.IsInRole("blogger"))
-    {
-        @Html.ActionLink("Edit", "Edit", new { id = Model.PostId })
-    }
-    @Html.ActionLink("Back", "Index")
-</p>
+

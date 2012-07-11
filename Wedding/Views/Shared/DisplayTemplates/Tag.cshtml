@@ -1,0 +1,5 @@
+﻿@model IEnumerable<Wedding.Models.Tag>
+@foreach (var tag in Model)
+{
+    <span>@Html.ActionLink(tag.Name, tag.Name, "Tag") </span>
+}

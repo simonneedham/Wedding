@@ -37,13 +37,12 @@
                 @Html.EditorFor(model => model.TagString)
                 @Html.ValidationMessageFor(model => model.TagString)
             </div>
-            <p>
-                <input type="submit" value="Save" />
-            </p>
+            @if (User.IsInRole("blogger"))
+            {
+                <p><input type="submit" value="Save" /></p>
+            }
+            <p>@Html.ActionLink("Back to List", "Index")</p>
         </div>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

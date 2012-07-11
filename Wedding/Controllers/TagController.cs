@@ -20,6 +20,8 @@ namespace Wedding.Controllers
             return View(_db.Tags.OrderBy(t => t.Name));
         }
 
+        //
+        // GET: /Tag/{TagName}
         public ViewResult Posts(string tagName)
         {
             var posts = _db.Tags.Where(t => t.Name == tagName).SelectMany(t => t.Posts);
