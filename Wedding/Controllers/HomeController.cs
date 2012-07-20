@@ -13,13 +13,13 @@ namespace Wedding.Controllers
 
         public ActionResult Index()
         {
-            //return View();
-            IEnumerable<Post> posts = _db.Posts.ToList();
+            //IEnumerable<Post> posts = _db.Posts.ToList();
 
-            if (posts != null)
-                posts = posts.OrderByDescending(p => p.Updated);
+            //if (posts != null)
+            //    posts = posts.OrderByDescending(p => p.Updated).Take(1);
 
-            //return View("/Views/News/Index.cshtml", _db.Posts.ToList().OrderByDescending(p => p.Updated));
+
+            var posts = _db.Posts.OrderByDescending(p => p.Updated).Take(1);
             return View("Index", posts);
         }
 

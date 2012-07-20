@@ -68,7 +68,6 @@ namespace Wedding.Controllers
 
         //
         // POST: /News/Edit/5
-
         [HttpPost, Authorize(Roles="Blogger")]
         public ActionResult Edit(Post post)
         {

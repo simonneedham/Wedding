@@ -1,7 +1,12 @@
 ﻿@model Wedding.Models.Post
 
 @{
-    ViewBag.Title = "S&H Wedding :: Create News";
+    ViewBag.Title = "S&H Wedding :: News :: Create";
+}
+
+@section JavaScriptHeader
+{
+   <script type="text/javascript" src="@Url.Content("~/ckeditor/ckeditor.js")"></script>
 }
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
@@ -25,8 +30,16 @@
                 @Html.LabelFor(model => model.PostContent)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.PostContent)
+                @Html.TextAreaFor(model => model.PostContent, new { id = "postContent"})
                 @Html.ValidationMessageFor(model => model.PostContent)
+                <script type="text/javascript">
+			        //<![CDATA[
+                    CKEDITOR.replace('postContent', {
+                        extraPlugins: 'autogrow',
+                        removePlugins: 'resize'
+                    });
+			        //]]>
+                </script>
             </div>
             <div>
                 @Html.Label("Tags")

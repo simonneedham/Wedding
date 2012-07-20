@@ -18,6 +18,13 @@
 
 /* #Site Styles
 ================================================== */
+footer
+{ 
+    background-color: #808080;
+    border-width: 1px 0px 0px 0px;
+    border-color: #000000; 
+    color: #FFFFFF;
+}
 
 /* #Page Styles
 ================================================== */

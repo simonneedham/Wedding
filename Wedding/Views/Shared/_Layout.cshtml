@@ -18,6 +18,8 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="@Url.Content("~/Images/apple-touch-icon-72x72.png")"/>
 	<link rel="apple-touch-icon" sizes="114x114" href="@Url.Content("~/Images/apple-touch-icon-114x114.png")"/>
 
+    @RenderSection("JavaScriptHeader", false)
+
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -49,8 +51,8 @@
 
     @RenderBody()
 
-    <div class="footer">
-    </div>
+    <footer>
+    </footer>
 
     <script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
 </body>
