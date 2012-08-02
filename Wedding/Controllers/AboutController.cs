@@ -10,6 +10,7 @@ namespace Wedding.Controllers
     {
         //
         // GET: /About/
+        [CompressFilter]
         public ActionResult Index()
         {
             return View();

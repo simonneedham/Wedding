@@ -14,6 +14,7 @@ namespace Wedding.Controllers
 
         //
         // GET: /Account/LogOn
+        [CompressFilter]
         public ActionResult LogOn()
         {
             return View();
@@ -51,6 +52,7 @@ namespace Wedding.Controllers
 
         //
         // GET: /Account/LogOff
+        [CompressFilter]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
@@ -61,6 +63,7 @@ namespace Wedding.Controllers
         //
         // GET: /Account/Register
         [Authorize]
+        [CompressFilter]
         public ActionResult Register()
         {
             return View();
@@ -97,6 +100,7 @@ namespace Wedding.Controllers
         // GET: /Account/ChangePassword
 
         [Authorize]
+        [CompressFilter]
         public ActionResult ChangePassword()
         {
             return View();
@@ -141,6 +145,7 @@ namespace Wedding.Controllers
 
         //
         // GET: /Account/ChangePasswordSuccess
+        [CompressFilter]
         public ActionResult ChangePasswordSuccess()
         {
             return View();

@@ -3,29 +3,27 @@
 @{
     ViewBag.Title = "S&H Wedding :: News";
 }
-    <div class="container">
-        <div class="row">
-        <div class = "four columns">
+    <div class="row">
+
             @if (User.IsInRole("blogger"))
             {
-                @Html.ActionLink("Write new blog post", "Create", "News");
+                <div class="row">
+                    <div class = "four columns">
+                        @Html.ActionLink("Write new blog post", "Create", "News");                                                 
+                    </div>
+                    <div class="twelve columns">&nbsp;</div>
+                </div>                                                                       
             }
-            else
-            {
-                <text>&nbsp;</text>
-            }
-        </div>
-        <div class="twelve columns">&nbsp;</div>
-        </div>
 
 @foreach (var item in Model)
 {
-        <div class ="sixteen columns">
+        <div class ="twelve columns">
             <a href="@Url.Action("details", "news", new { id = item.PostId })" style="text-decoration: none;">
                 <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
             </a>
         </div>
-        if(User.IsInRole("blogger")) {
+    if (User.IsInRole("blogger"))
+    {
             <div class ="two columns">
             
                     <a href="@Url.Action("edit", "news", new { id = item.PostId })" style="text-decoration: none;">
@@ -38,13 +36,13 @@
                         <img alt="Delete" src="@Url.Content("~/Images/glyphicons_016_bin.png")" />
                     </a>
             </div>
-            <div class = "fourteen columns"></div>
-        }
-        <div class = "sixteen columns">
+            <div class = "ten columns"></div>
+    }
+        <div class = "twelve columns">
             @Html.Raw(HttpUtility.HtmlDecode(item.PostContent))
         </div>
-        <div class="sixteen columns">@Html.DisplayFor(modelItem => item.Tags, "Tag")</div>
-        <div class = "fourteen columns">@Html.DisplayFor(modelItem => item.UserName)&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Updated)</div>
+        <div class="twelve columns">@Html.DisplayFor(modelItem => item.Tags, "Tag")</div>
+        <div class = "ten columns">@Html.DisplayFor(modelItem => item.UserName)&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Updated)</div>
         <div class = "two columns">&nbsp;</div>
         <div class= "row">&nbsp;</div>
 }

@@ -15,13 +15,24 @@ namespace Wedding.Controllers
 
         //
         // GET: /Tag/
+        [CompressFilter]
         public ViewResult Index()
         {
             return View(_db.Tags.OrderBy(t => t.Name));
         }
 
         //
+        //GET: /tag/cloud
+        [CompressFilter]
+        public ViewResult Cloud()
+        {
+            var tags = _db.Tags.Include(t => t.Posts).OrderBy(t => t.Name);
+            return View(tags);
+        }
+
+        //
         // GET: /Tag/{TagName}
+        [CompressFilter]
         public ViewResult Posts(string tagName)
         {
             var posts = _db.Tags.Where(t => t.Name == tagName).SelectMany(t => t.Posts);
@@ -34,6 +45,7 @@ namespace Wedding.Controllers
 
         //
         // GET: /Tag/Details/5
+        [CompressFilter]
         public ViewResult Details(int id)
         {
             Tag tag = _db.Tags.Find(id);

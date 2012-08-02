@@ -15,6 +15,7 @@ namespace Wedding.Controllers
 
         //
         // GET: /News/
+        [CompressFilter]
         public ViewResult Index()
         {
             var viewResult = View(_db.Posts.ToList().OrderByDescending(p => p.Updated));
@@ -23,6 +24,7 @@ namespace Wedding.Controllers
 
         //
         // GET: /News/Details/5
+        [CompressFilter]
         public ViewResult Details(int id)
         {
             Post post = _db.Posts.Where(p => p.PostId == id).Include(p => p.Tags).SingleOrDefault();
@@ -31,6 +33,7 @@ namespace Wedding.Controllers
 
         //
         // GET: /News/Create
+        [CompressFilter]
         [Authorize(Roles = "Blogger")]
         public ActionResult Create()
         {
@@ -39,7 +42,6 @@ namespace Wedding.Controllers
 
         //
         // POST: /News/Create
-
         [HttpPost, Authorize(Roles="Blogger")]
         public ActionResult Create(Post post)
         {
@@ -58,7 +60,7 @@ namespace Wedding.Controllers
         
         //
         // GET: /News/Edit/5
-
+        [CompressFilter]
         [Authorize(Roles = "Blogger")]
         public ActionResult Edit(int id)
         {
@@ -68,6 +70,7 @@ namespace Wedding.Controllers
 
         //
         // POST: /News/Edit/5
+        [CompressFilter]
         [HttpPost, Authorize(Roles="Blogger")]
         public ActionResult Edit(Post post)
         {
@@ -114,6 +117,7 @@ namespace Wedding.Controllers
 
         //
         // GET: /News/Delete/5
+        [CompressFilter]
         [Authorize(Roles = "Blogger")]
         public ActionResult Delete(int id)
         {

@@ -14,11 +14,14 @@ namespace Wedding.Controllers
     {
         private BlogContext _db = new BlogContext();
 
+        [CompressFilter]
         public AtomActionResult Atom()
         {
             return new AtomActionResult(GetFeed());
         }
 
+
+        [CompressFilter]
         public RssActionResult RSS()
         {
             return new RssActionResult(GetFeed());

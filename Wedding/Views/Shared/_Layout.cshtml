@@ -25,48 +25,55 @@
 <body>
     <div class="wrap">
     <div class="main">
-    <div class="container">
-        <div class="fourteen columns">&nbsp;</div>
-        <div class="two columns">@Html.Partial("_LogOnPartial")</div>
-        <div class="two columns">
-            <span style="color: #808080;font-family:'Satisfy','Handlee','Georgia','Times New Roman',serif;font-weight: normal;">
-                <span style="font-size: 46px;position:relative;left:+7px;top:0px;">S</span>
-                <span style="font-size: 34px;position:relative;left:+0px;top:10px;">&amp;</span>
-                <span style="font-size: 46px;position:relative;left:-5px;top:20px;">H</span>
-            </span>
+        <div class="container">
+                <div class="fourteen columns">&nbsp;</div>
+                <div class="two columns">@Html.Partial("_LogOnPartial")</div>
+                <div class="two columns">
+                    <span style="color: #808080;font-family:'Satisfy','Handlee','Georgia','Times New Roman',serif;font-weight: normal;">
+                        <span style="font-size: 46px;position:relative;left:+7px;top:0px;">S</span>
+                        <span style="font-size: 34px;position:relative;left:+0px;top:10px;">&amp;</span>
+                        <span style="font-size: 46px;position:relative;left:-5px;top:20px;">H</span>
+                    </span>
+                </div>
+                <div class="twelve columns" style="text-align: center">
+                    <!--<h1>Simon & Helen's Wedding</h1>-->
+                    <h1>Insert title here</h1>
+                </div>
+                <div class="two column">&nbsp;</div>
+                <div class="nine columns">&nbsp;</div>
+                <div class="seven columns"><h3>15<span style="vertical-align: super;font-size: .83em">th</span> June 2013</h3></div>
+                <div class="nav sixteen columns">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Venue", "Venue", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        <div class="container">
+            <div class="twelve columns">
+                @RenderBody()
+            </div>
+            <div class="four columns">
+                <div class="countdown">
+                </div>
+                <h4>Tags</h4>
+                @Html.Raw(Wedding.HtmlExtensions.MakeTagCloud())
+            </div>
         </div>
-        <div class="twelve columns" style="text-align: center">
-            <!--<h1>Simon & Helen's Wedding</h1>-->
-            <h1>Insert title here</h1>
-        </div>
-        <div class="two column">&nbsp;</div>
-        <div class="nine columns">&nbsp;</div>
-        <div class="seven columns"><h3>15<span style="vertical-align: super;font-size: .83em">th</span> June 2013</h3></div>
-        <div class="nav sixteen columns">
-            <ul>
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Venue", "Venue", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </ul>
-        </div>
-    </div>
-
-    @RenderBody()
     </div>
     </div>
     <footer>
         <div class = "container">
-            <div class="six columns">
+            <div class="two columns">
                 <h5>RSS</h5>
-                @Html.ActionLink("Atom", "Atom", "Syndication")
+                @Html.ActionLink("Atom", "Atom", "Syndication")<br/>
                 @Html.ActionLink("RSS", "RSS", "Syndication")
             </div>
-            <div class="four columns">
-                @Html.ActionLink("About this website", "Index", "About");
-            </div>
-            <div class="six columns">
-                Copyright © 2012 <a href="mailto:simonandhelen@needham.uk.net">Simon Needham. All Rights Reserved.</a>
-                <a href="mailto:enquiries@beaonsfieldsoftware.com">Beaconsfield Software Ltd</a>
+            <div class="fourteen columns" style="text-align: right;">
+                Website content Copyright © 2012 <a href="mailto:simonandhelen@needham.uk.net">Simon Needham</a>. All Rights Reserved.<br/>
+                Built by <a href="mailto:enquiries@beaconsfieldsoftware.com">Beaconsfield Software Ltd</a><br/>
+                @Html.ActionLink("About this website", "Index", "About")
             </div>
         </div>
     </footer>

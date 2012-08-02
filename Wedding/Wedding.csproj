@@ -66,6 +66,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AtomActionResult.cs" />
+    <Compile Include="Controllers\CompressFilter.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RssActionResult.cs" />
@@ -74,12 +75,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlExtensions.cs" />
     <Compile Include="LowerCaseRoute.cs" />
     <Compile Include="LowerCaseRouteExtensions.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\BlogContext.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\TagCloudItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -461,7 +464,6 @@
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
@@ -504,7 +506,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ckeditor\.htaccess" />
-    <Content Include="Views\About\About.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Tag\_Cloud.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

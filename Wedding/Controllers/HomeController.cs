@@ -11,6 +11,7 @@ namespace Wedding.Controllers
     {
         private BlogContext _db = new BlogContext();
 
+        [CompressFilter]
         public ActionResult Index()
         {
             //IEnumerable<Post> posts = _db.Posts.ToList();
@@ -23,6 +24,7 @@ namespace Wedding.Controllers
             return View("Index", posts);
         }
 
+        [CompressFilter]
         public ActionResult About()
         {
             return View();
