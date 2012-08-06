@@ -421,6 +421,8 @@
     <Content Include="Images\apple-touch-icon-72x72.png" />
     <Content Include="Images\apple-touch-icon.png" />
     <Content Include="Images\favicon.ico" />
+    <Content Include="Images\flipCounter-custom.png" />
+    <Content Include="Images\flipCounter-medium.png" />
     <Content Include="Images\glyphicons_015_print.png" />
     <Content Include="Images\glyphicons_016_bin.png" />
     <Content Include="Images\glyphicons_023_cogwheels.png" />
@@ -433,11 +435,13 @@
     <Content Include="Scripts\jquery-1.5.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.flipCounter.1.2.pack.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\tabs.js" />
     <Content Include="Styles\base.css" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\skeleton.css" />

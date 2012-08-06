@@ -31,5 +31,11 @@ namespace Wedding
 
             return output.ToString();
         }
+
+        public static string GetDaysToGo()
+        {
+            var daysToGo = new DateTime(2013, 06, 15).Subtract(DateTime.Today).Days;
+            return daysToGo.ToString();
+        }
     }
 }
