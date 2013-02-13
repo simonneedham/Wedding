@@ -448,7 +448,9 @@
     <Content Include="Styles\base.css" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\skeleton.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
