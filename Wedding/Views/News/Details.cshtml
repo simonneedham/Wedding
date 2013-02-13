@@ -1,0 +1,28 @@
+﻿@model Wedding.Models.Post
+
+@{
+    ViewBag.Title = "S&H Wedding :: News :: " + Model.Title;
+}
+
+<fieldset>
+    <legend></legend>
+    <div class="container">
+        <div class="sixteen columns"><h4>@Html.DisplayFor(model => model.Title)</h4></div>
+        <div class="sixteen columns" style="border: 1px solid #000000">@Html.Raw(HttpUtility.HtmlDecode(Model.PostContent))</div>
+        <div class="sixteen columns">@Html.DisplayFor(t => Model.Tags, "Tag")</div>
+        <div class="sixteen columns">@Html.DisplayFor(model => model.UserName)&nbsp;&nbsp;@Html.DisplayFor(model => model.Updated)</div>
+        <div class="sixteen columns">
+        @if (User.IsInRole("blogger"))
+        {
+            <a href="@Url.Action("edit", "news", new { id = Model.PostId })" style="text-decoration: none;">
+                <img alt="Edit" src="@Url.Content("~/Images/glyphicons_151_edit.png")"/>
+            </a>
+            <a href="@Url.Action("delete", "news", new { id = Model.PostId })" style="text-decoration: none;">
+                <img alt="Delete" src="@Url.Content("~/Images/glyphicons_016_bin.png")" />
+            </a>
+        }
+        <p>@Html.ActionLink("Back", "Index")</p>
+        </div>
+    </div>
+</fieldset>
+

@@ -18,25 +18,73 @@
 
 /* #Site Styles
 ================================================== */
+html, body {height: 100%;}
+
+.wrap
+{
+    min-height: 100%;
+}
+
+.main
+{
+    overflow:auto;
+    padding-bottom: 80px;
+}
+
+footer
+{
+    position: relative;
+    margin-top: -80px; /* negative value of footer height */
+    height: 80px;
+    clear:both;
+
+    background-color: #808080;
+    border-width: 1px 0px 0px 0px;
+    border-color: #000000; 
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6, footer a
+{
+    color: #FFFFFF;
+}
+
+footer a:visited
+{
+    color: #FFFFFF;
+}
+
+b
+{
+    font-weight: bold;
+}
 
 /* #Page Styles
 ================================================== */
 .container 
 {
-    margin-top: 10px;
+    /*margin-top: 10px;*/
+    padding-top: 10px;
 }
 
 .nav 
 {
-    margin: 13px 0 0 0;
+    /*margin: 13px 0 0 0;*/
+    
+    margin: 0 0 0 0;
+    padding: 13px;
 }
 
 .nav ul li 
 {
     display: inline;
     font: 21px "Handlee", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 0 20px 0 0;
-    margin-bottom: 130px;
+    /*margin: 0 20px 0 0;
+    margin-bottom: 130px;*/
+    
+    padding: 0 20px 0 0;
+    padding-bottom: 130px;
 }
 
 .nav a
@@ -49,7 +97,33 @@
     text-decoration: underline;
 }
 
+/*
+------------------------------
+  Tag Cloud
+------------------------------
+*/
+.tagCloud {color: #808080}
 
+.tag1{font-size: 0.8em}
+.tag2{font-size: 0.9em}
+.tag3{font-size: 1em}
+.tag4{font-size: 1.2em}
+.tag5{font-size: 1.4em}
+.tag6{font-size: 1.7em}
+.tag7{font-size: 2.0em}
+
+
+ul.bullet
+{
+    display: block;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.bullet li
+{
+    display: list-item;
+}
 
 
 /* #Media Queries
@@ -88,3 +162,4 @@
 	    font-weight: normal;
 	    font-style: normal; }
 */
+

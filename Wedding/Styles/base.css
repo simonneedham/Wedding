@@ -7,7 +7,7 @@
 * 8/17/2011
 */
 
-@import url(http://fonts.googleapis.com/css?family=Neucha|Handlee);
+@import url(http://fonts.googleapis.com/css?family=Neucha|Handlee|Satisfy);
 
 /* Table of Content
 ==================================================
@@ -63,10 +63,12 @@
 
 /* #Typography
 ================================================== */
-	h1, h2, h3, h4, h5, h6 {
-		color: #181818;
-		font-family: "Handlee", "Georgia", "Times New Roman", serif;
-		font-weight: normal; }
+	h1, h2, h3, h4, h5, h6
+{
+    color: #808080;
+    font-family: "Satisfy" , "Handlee" , "Georgia" , "Times New Roman" , serif;
+    font-weight: normal;
+}
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
 	h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
 	h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
@@ -97,7 +99,7 @@
 /* #Links
 ================================================== */
 	a, a:visited { color: #333; text-decoration: underline; outline: 0; }
-	a:hover, a:focus { color: #000; }
+	a:hover { color: #000; } /* a:focus */
 	p a, p a:visited { line-height: inherit; }
 
 
