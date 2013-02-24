@@ -15,10 +15,10 @@
         @if (User.IsInRole("blogger"))
         {
             <a href="@Url.Action("edit", "news", new { id = Model.PostId })" style="text-decoration: none;">
-                <img alt="Edit" src="@Url.Content("~/Images/glyphicons_151_edit.png")"/>
+                <img alt="Edit" src="@Url.Content("~/Areas/wedding/Images/glyphicons_151_edit.png")"/>
             </a>
             <a href="@Url.Action("delete", "news", new { id = Model.PostId })" style="text-decoration: none;">
-                <img alt="Delete" src="@Url.Content("~/Images/glyphicons_016_bin.png")" />
+                <img alt="Delete" src="@Url.Content("~/Areas/wedding/Images/glyphicons_016_bin.png")" />
             </a>
         }
         <p>@Html.ActionLink("Back", "Index")</p>

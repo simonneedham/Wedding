@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Xml;
 
-namespace Wedding.Controllers
+namespace Wedding.Areas.wedding.Controllers
 {
     public class AtomActionResult : ActionResult
     {

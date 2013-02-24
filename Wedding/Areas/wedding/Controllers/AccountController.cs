@@ -7,7 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using Wedding.Models;
 
-namespace Wedding.Controllers
+namespace Wedding.Areas.wedding.Controllers
 {
     public class AccountController : Controller
     {
