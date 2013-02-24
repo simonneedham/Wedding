@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Wedding.Models;
 
-namespace Wedding.Controllers
+namespace Wedding.Areas.wedding.Controllers
 { 
     public class NewsController : Controller
     {

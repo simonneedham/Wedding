@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using Wedding.Models;
 using System.ServiceModel.Syndication;
 
-namespace Wedding.Controllers
+namespace Wedding.Areas.wedding.Controllers
 { 
     public class SyndicationController : Controller
     {

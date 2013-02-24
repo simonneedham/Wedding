@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Wedding.Models;
 
-namespace Wedding.Controllers
+namespace Wedding.Areas.wedding.Controllers
 { 
     public class TagController : Controller
     {
@@ -40,7 +40,7 @@ namespace Wedding.Controllers
             if (posts != null)
                 posts = posts.OrderByDescending(p => p.Updated);
 
-            return View("/Views/News/Index.cshtml", posts);
+            return View("/Areas/wedding/Views/News/Index.cshtml", posts);
         }
 
         //

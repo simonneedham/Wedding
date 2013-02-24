@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Wedding;
-using Wedding.Controllers;
+using Wedding.Areas.wedding.Controllers;
+
 
 namespace Wedding.Tests.Controllers
 {

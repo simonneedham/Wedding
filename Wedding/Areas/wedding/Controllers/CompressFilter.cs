@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.IO.Compression;
 
-namespace Wedding.Controllers
+namespace Wedding.Areas.wedding.Controllers
 {
     public class CompressFilterAttribute : ActionFilterAttribute
     {

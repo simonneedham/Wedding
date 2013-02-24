@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Wedding.Controllers
+namespace Wedding.Areas.wedding.Controllers
 {
-    public class WhereToStayController : Controller
+    public class StayInTouchController : Controller
     {
         //
-        // GET: /WhereToStay/
+        // GET: /StayInTouch/
         [CompressFilter]
         public ActionResult Index()
         {

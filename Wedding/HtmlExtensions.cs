@@ -22,7 +22,7 @@ namespace Wedding
 
                 foreach (TagCloudItem tag in tagItems)
                 {
-                    output.AppendFormat(@"<span class=""tag{0}""><a href=""/tag/{1}"">{1}</a></span>", tag.Rank, tag.Name);
+                    output.AppendFormat(@"<span class=""tag{0}""><a href=""/wedding/tag/{1}"">{1}</a></span>", tag.Rank, tag.Name);
                     output.Append("&nbsp;");
                 }
             }
