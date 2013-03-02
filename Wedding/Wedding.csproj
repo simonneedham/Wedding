@@ -94,6 +94,11 @@
     <Compile Include="Areas\wedding\Models\Post.cs" />
     <Compile Include="Areas\wedding\Models\Tag.cs" />
     <Compile Include="Areas\wedding\Models\TagCloudItem.cs" />
+    <Compile Include="Migrations\201207082032386_InitialCreate.cs" />
+    <Compile Include="Migrations\201207082032386_InitialCreate.Designer.cs">
+      <DependentUpon>201207082032386_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
