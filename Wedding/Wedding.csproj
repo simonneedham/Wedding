@@ -442,7 +442,7 @@
     <Content Include="Areas\wedding\Images\glyphicons_081_refresh.png" />
     <Content Include="Areas\wedding\Images\glyphicons_151_edit.png" />
     <Content Include="Areas\wedding\Images\glyphicons_157_show_lines.png" />
-    <Content Include="Images\favicon.ico" />
+    <Content Include="favicon.ico" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
