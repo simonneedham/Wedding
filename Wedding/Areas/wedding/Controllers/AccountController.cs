@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using Wedding.Models;
+using System.Web.Providers;
 
 namespace Wedding.Areas.wedding.Controllers
 {
@@ -62,7 +63,7 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // GET: /Account/Register
-        [Authorize]
+        //[Authorize]
         [CompressFilter]
         public ActionResult Register()
         {
@@ -71,7 +72,7 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // POST: /Account/Register
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
@@ -82,7 +83,12 @@ namespace Wedding.Areas.wedding.Controllers
                 Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
 
                 if (createStatus == MembershipCreateStatus.Success)
-                {
+                {   
+                    if(!Roles.RoleExists("Blogger")) Roles.CreateRole("Blogger");
+
+                    if (model.UserName.ToLower() == "helen" || model.UserName.ToLower() == "simon")
+                        Roles.AddUserToRole(model.UserName, "Blogger");
+
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }
