@@ -63,7 +63,7 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // GET: /Account/Register
-        //[Authorize]
+        [Authorize]
         [CompressFilter]
         public ActionResult Register()
         {
@@ -72,7 +72,7 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // POST: /Account/Register
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
@@ -121,7 +121,6 @@ namespace Wedding.Areas.wedding.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 // ChangePassword will throw an exception rather
                 // than return false in certain failure scenarios.
                 bool changePasswordSucceeded;
