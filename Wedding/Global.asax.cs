@@ -20,13 +20,20 @@ namespace Wedding
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.MapRouteLowercase(
-                    "root_default",
-                    "",
-                    new { area= "wedding", controller = "Home", action = "Index", id = UrlParameter.Optional },
-                    new string[] { "Wedding.Areas.wedding.Controllers" }
-                    );
 
+            //routes.MapRouteLowercase(
+            //        "root_default",
+            //        "",
+            //        new { area= "wedding", controller = "Home", action = "Index", id = UrlParameter.Optional },
+            //        new string[] { "Wedding.Areas.wedding.Controllers" }
+            //        );
+
+            routes.MapRouteLowercase(
+                "Default", // Route name
+                "{controller}/{action}/{id}", // URL with parameters
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                new string[] { "Wedding.Controllers" }
+            );
 
             //routes.MapRouteLowercase(
             //    "Default", // Route name
