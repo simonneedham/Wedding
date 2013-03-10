@@ -1,0 +1,35 @@
+﻿@model Wedding.Models.Rsvp
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Rsvp</legend>
+
+    <div class="display-label">Invitees</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Invitees)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">NoOfAttendees</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoOfAttendees)
+    </div>
+
+    <div class="display-label">DietaryRequirements</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DietaryRequirements)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.RsvpId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

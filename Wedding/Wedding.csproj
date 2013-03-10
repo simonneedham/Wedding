@@ -78,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AreaRegistrationContextExtensions.cs" />
+    <Compile Include="Areas\wedding\Controllers\RsvpController.cs" />
+    <Compile Include="Areas\wedding\Models\Rsvp.cs" />
     <Compile Include="Areas\wedding\weddingAreaRegistration.cs" />
     <Compile Include="Areas\wedding\Controllers\AboutController.cs" />
     <Compile Include="Areas\wedding\Controllers\AccountController.cs" />
@@ -107,6 +109,10 @@
     <Compile Include="Migrations\201207082032386_InitialCreate.cs" />
     <Compile Include="Migrations\201207082032386_InitialCreate.Designer.cs">
       <DependentUpon>201207082032386_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303091535252_AddRsvp.cs" />
+    <Compile Include="Migrations\201303091535252_AddRsvp.Designer.cs">
+      <DependentUpon>201303091535252_AddRsvp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -559,6 +565,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_layout.cshtml" />
+    <Content Include="Areas\wedding\Views\Rsvp\Index.cshtml" />
+    <Content Include="Areas\wedding\Views\Rsvp\Details.cshtml" />
+    <Content Include="Areas\wedding\Views\Rsvp\Create.cshtml" />
+    <Content Include="Areas\wedding\Views\Rsvp\Edit.cshtml" />
+    <Content Include="Areas\wedding\Views\Rsvp\Delete.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
