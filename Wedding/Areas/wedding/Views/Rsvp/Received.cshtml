@@ -1,0 +1,16 @@
+﻿@model Wedding.Models.Rsvp
+
+@{
+    ViewBag.Title = "RSVP Received";
+}
+
+<h2>RSVP Received</h2>
+
+@if (Model.NoOfAttendees > 0)
+{
+    <p>Hey great news, we look forward to seeing you on the day.</p>
+}
+else
+{
+    <p>Sorry to hear you can't make it, hopefully we can catch up soon.</p>
+}

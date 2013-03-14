@@ -11,7 +11,7 @@ namespace Wedding.Models
     {
         public DbSet<Post> Posts { get; set; }
         public DbSet<Tag> Tags { get; set; }
-
+        public DbSet<Rsvp> Rsvp { get; set; }
 
         public IList<TagCloudItem> GetTagCloudItems()
         {
