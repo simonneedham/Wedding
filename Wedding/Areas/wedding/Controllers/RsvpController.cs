@@ -16,6 +16,7 @@ namespace Wedding.Areas.wedding.Controllers
         //
         // GET: /wedding/Rsvp/
         [Authorize(Roles = "Blogger")]
+        [CompressFilter]
         public ViewResult Index()
         {
             return View(_db.Rsvp.ToList());
@@ -23,6 +24,7 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // GET: /wedding/Rsvp/Details/5
+        [CompressFilter]
         [Authorize(Roles = "Blogger")]
         public ViewResult Details(int id)
         {
@@ -32,7 +34,7 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // GET: /wedding/Rsvp/Create
-
+        [CompressFilter]
         public ActionResult Create()
         {
             return View();
@@ -40,7 +42,6 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // POST: /wedding/Rsvp/Create
-
         [HttpPost]
         public ActionResult Create(Rsvp rsvp)
         {
@@ -48,14 +49,21 @@ namespace Wedding.Areas.wedding.Controllers
             {
                 _db.Rsvp.Add(rsvp);
                 _db.SaveChanges();
-                return RedirectToAction("Index");  
+                return View("Received", rsvp);  
             }
 
             return View(rsvp);
         }
-        
+
+        [CompressFilter]
+        public ActionResult Received(Rsvp rsvp)
+        {
+            return View(rsvp);
+        }
+
         //
         // GET: /wedding/Rsvp/Edit/5
+        [CompressFilter]
         [Authorize(Roles = "Blogger")]
         public ActionResult Edit(int id)
         {
@@ -65,7 +73,6 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // POST: /wedding/Rsvp/Edit/5
-
         [HttpPost]
         [Authorize(Roles = "Blogger")]
         public ActionResult Edit(Rsvp rsvp)
@@ -81,6 +88,7 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // GET: /wedding/Rsvp/Delete/5
+        [CompressFilter]
         [Authorize(Roles = "Blogger")]
         public ActionResult Delete(int id)
         {
@@ -90,7 +98,6 @@ namespace Wedding.Areas.wedding.Controllers
 
         //
         // POST: /wedding/Rsvp/Delete/5
-
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            

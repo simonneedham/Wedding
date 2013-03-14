@@ -570,6 +570,7 @@
     <Content Include="Areas\wedding\Views\Rsvp\Create.cshtml" />
     <Content Include="Areas\wedding\Views\Rsvp\Edit.cshtml" />
     <Content Include="Areas\wedding\Views\Rsvp\Delete.cshtml" />
+    <Content Include="Areas\wedding\Views\Rsvp\Received.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

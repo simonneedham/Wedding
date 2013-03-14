@@ -1,10 +1,31 @@
 ﻿@model Wedding.Models.Rsvp
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Send RSVP";
 }
 
-<h2>Create</h2>
+@section StyleHeader {
+    <style type="text/css">
+        /*input[type=text]*/
+        #Invitees, #Email
+        {
+            width: 66%
+        }
+        
+        .text-box
+        {
+            width: 66%
+        }
+        
+        input:disabled
+        {
+            colour: #808080;
+            border-color: #808080
+        }
+    </style>
+}
+
+<h2>Send RSVP</h2>
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
@@ -12,46 +33,73 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Rsvp</legend>
+        <legend></legend>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Invitees)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Invitees)
+                    @Html.ValidationMessageFor(model => model.Invitees)
+                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Invitees)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Invitees)
-            @Html.ValidationMessageFor(model => model.Invitees)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
-        </div>
+                <input id='attendingYes' name='attending' type='radio' value='yes' />We'd love to attend!<br/>
+                <input id='attendingNo' name='attending' type='radio' value='no' />Sorry, but we can't make it.<br/>
+                <br/>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.NoOfAttendees)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.NoOfAttendees)
-            @Html.ValidationMessageFor(model => model.NoOfAttendees)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.NoOfAttendees)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.NoOfAttendees)
+                    @Html.ValidationMessageFor(model => model.NoOfAttendees)
+                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DietaryRequirements)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DietaryRequirements)
-            @Html.ValidationMessageFor(model => model.DietaryRequirements)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DietaryRequirements)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DietaryRequirements)
+                    @Html.ValidationMessageFor(model => model.DietaryRequirements)
+                </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
+                <p>
+                    <input type="submit" value="Send" />
+                </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("input[name='attending']").change(function () {
+            if ($("#attendingYes").is(':checked')) {
+                //enable controls
+                $("label[for='NoOfAttendees'").attr('disabled', false);
+                $('#NoOfAttendees').attr('disabled', false);
+                $('#NoOfAttendees').val('');
+
+                $("label[for='DietaryRequirements'").attr('disabled', false);
+                $('#DietaryRequirements').attr('disabled', false);
+            }
+            else {
+                //Disable controls
+                $("label[for='NoOfAttendees'").attr('disabled', true);
+                $('#NoOfAttendees').val('0');
+                $('#NoOfAttendees').attr('disabled', true);
+
+                $("label[for='DietaryRequirements'").attr('disabled', true);
+                $('#DietaryRequirements').attr('disabled', true);
+                $('#DietaryRequirements').val('');
+            }
+        });
+
+    });
+</script>
