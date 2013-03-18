@@ -61,7 +61,7 @@ namespace Wedding.Areas.wedding.Controllers
 
                 _db.Posts.Add(post);
                 _db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             return View(post);
