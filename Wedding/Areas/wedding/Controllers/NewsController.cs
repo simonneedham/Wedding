@@ -50,6 +50,15 @@ namespace Wedding.Areas.wedding.Controllers
 
             if (ModelState.IsValid)
             {
+                foreach (var tag in post.Tags.ToList())
+                {
+                    var dbTag = _db.Tags.Where(t => t.Name.ToLower() == tag.Name.ToLower()).SingleOrDefault();
+                    {
+                        post.Tags.Remove(tag);
+                        post.Tags.Add(dbTag);
+                    }
+                }
+
                 _db.Posts.Add(post);
                 _db.SaveChanges();
                 return RedirectToAction("Index");  
