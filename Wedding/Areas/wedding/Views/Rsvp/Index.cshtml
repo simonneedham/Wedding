@@ -1,51 +1,58 @@
 ﻿@model IEnumerable<Wedding.Models.Rsvp>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "RSVPs Received";
 }
 
-<h2>Index</h2>
+<h2>RSVPs Received</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
-    <tr>
-        <th>
-            Invitees
-        </th>
-        <th>
-            Email
-        </th>
-        <th>
-            NoOfAttendees
-        </th>
-        <th>
-            DietaryRequirements
-        </th>
-        <th></th>
-    </tr>
+<div class="twelve columns">
+    <table>
+        <tr>
+            <th>
+                Invitees
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                NoOfAttendees
+            </th>
+            <th>
+                DietaryRequirements
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Invitees)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NoOfAttendees)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DietaryRequirements)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RsvpId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RsvpId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RsvpId })
-        </td>
-    </tr>
-}
-
-</table>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Invitees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfAttendees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DietaryRequirements)
+            </td>
+            <td>
+                <a href="@Url.Action("edit", "rsvp", new { id = item.RsvpId })" style="text-decoration: none;">
+                    <img alt="Edit" src="@Url.Content("~/Areas/wedding/Images/glyphicons_151_edit.png")"/>
+                </a>
+                <a href="@Url.Action("details", "rsvp", new { id = item.RsvpId })" style="text-decoration: none;">
+                    <img alt="Details" src="@Url.Content("~/Areas/wedding/Images/glyphicons_157_show_lines.png")" />
+                </a>
+                <a href="@Url.Action("delete", "rsvp", new { id = item.RsvpId })" style="text-decoration: none;">
+                    <img alt="Delete" src="@Url.Content("~/Areas/wedding/Images/glyphicons_016_bin.png")" />
+                </a>
+            </td>
+        </tr>
+    }
+    </table>
+</div>
