@@ -421,6 +421,7 @@
     <Content Include="Areas\wedding\ckeditor\skins\kama\skin.js" />
     <Content Include="Areas\wedding\ckeditor\skins\kama\templates.css" />
     <Content Include="Areas\wedding\ckeditor\themes\default\theme.js" />
+    <Content Include="Areas\wedding\Images\flower-web-orange-corner.png" />
     <Content Include="Areas\wedding\Images\flower-web-orange-row.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
