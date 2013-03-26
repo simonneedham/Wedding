@@ -41,8 +41,8 @@
             @Html.Raw(HttpUtility.HtmlDecode(item.PostContent))
         </div>
         <div class="twelve columns">@Html.DisplayFor(modelItem => item.Tags, "Tag")</div>
-        <div class = "ten columns">@Html.DisplayFor(modelItem => item.UserName)&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Updated)</div>
-        <div class = "two columns">&nbsp;</div>
+        <div class = "ten columns omega">@Html.DisplayFor(modelItem => item.UserName)&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Updated)</div>
+        <div class = "two columns alpha">&nbsp;</div>
         if(Model.Count<Wedding.Models.Post>()>1)
         {
             <div class="twelve columns">
