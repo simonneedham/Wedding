@@ -471,6 +471,7 @@
     <Content Include="Areas\wedding\Images\glyphicons_151_edit.png" />
     <Content Include="Areas\wedding\Images\glyphicons_157_show_lines.png" />
     <Content Include="favicon.ico" />
+    <Content Include="Scripts\DateExtensions.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
@@ -579,6 +580,7 @@
     <Content Include="Areas\wedding\Views\Rsvp\Edit.cshtml" />
     <Content Include="Areas\wedding\Views\Rsvp\Delete.cshtml" />
     <Content Include="Areas\wedding\Views\Rsvp\Received.cshtml" />
+    <Content Include="Areas\wedding\Views\Shared\EditorTemplates\DateTimeHidden.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -597,7 +599,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51894</DevelopmentServerPort>
+          <DevelopmentServerPort>50105</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
