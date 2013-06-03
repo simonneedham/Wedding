@@ -46,7 +46,12 @@ namespace Wedding.Areas.wedding.Controllers
         public ActionResult Create(Post post)
         {
             post.UserName = User.Identity.Name;
-            post.Updated = DateTime.UtcNow;
+
+            if(post.Updated == null)
+                post.Updated = post.Updated.ToUniversalTime();
+
+            if (post.Updated.Kind == DateTimeKind.Local)
+                post.Updated = post.Updated.ToUniversalTime();
 
             if (ModelState.IsValid)
             {
@@ -85,7 +90,11 @@ namespace Wedding.Areas.wedding.Controllers
         {
             if (ModelState.IsValid)
             {
-                post.Updated = DateTime.UtcNow;
+                if(post.Updated == null)
+                    post.Updated = DateTime.UtcNow;
+
+                if (post.Updated.Kind == DateTimeKind.Local)
+                    post.Updated = post.Updated.ToUniversalTime();
 
                 var databasePost = _db.Posts.Where(p => p.PostId == post.PostId).Include(p => p.Tags).SingleOrDefault();
                 _db.Entry(databasePost).CurrentValues.SetValues(post);

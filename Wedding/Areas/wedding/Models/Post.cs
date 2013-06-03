@@ -12,6 +12,11 @@ namespace Wedding.Models
         string _userName = string.Empty;
         List<Tag> _tags;
 
+        public Post()
+        {
+            this.Updated = DateTime.UtcNow;
+        }
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PostId { get; set; }
 

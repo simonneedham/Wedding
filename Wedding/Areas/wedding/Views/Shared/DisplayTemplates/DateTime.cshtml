@@ -1,2 +1,2 @@
 ﻿@model DateTime
-@String.Format("{0:dd-MMM-yyyy hh:mm tt}", Model).ToLower()
+<span class="utcDate">@String.Format("{0:o}Z", Model)</span>
