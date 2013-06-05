@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Wedding.Models.SongRequest>
+
+@{
+    ViewBag.Title = "Song Requests";
+}
+
+@section StyleHeader {
+    <style>
+        table.list
+        {
+            width: 80%;
+        }
+        
+        table.list th
+        {
+            font-weight: bold;
+            text-align: left;
+        }
+        
+        table.list td
+        {
+            text-align: left;
+        }
+    </style>
+}
+
+<h2>Song Requests</h2>
+<p>
+     Planning on showing off your moves on the dance floor?<br/>
+     Then @Html.ActionLink("request your favourite songs", "Create") from our DJ.
+</p>
+<div class="twelve columns">
+    <table class="list">
+        <tr>
+            <th>
+                Artist
+            </th>
+            <th>
+                Song
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArtistName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongName)
+            </td>
+            <td>
+                @if (User.IsInRole("blogger"))
+                {
+                <a href="@Url.Action("edit", "songrequest", new { id = item.SongRequestId })" style="text-decoration: none;">
+                    <img alt="Edit" src="@Url.Content("~/Areas/wedding/Images/glyphicons_151_edit.png")"/>
+                </a>
+                }
+                <a href="@Url.Action("details", "songrequest", new { id = item.SongRequestId })" style="text-decoration: none;">
+                    <img alt="Details" src="@Url.Content("~/Areas/wedding/Images/glyphicons_157_show_lines.png")" />
+                </a>
+                @if (User.IsInRole("blogger"))
+                {
+                <a href="@Url.Action("delete", "songrequest", new { id = item.SongRequestId })" style="text-decoration: none;">
+                    <img alt="Delete" src="@Url.Content("~/Areas/wedding/Images/glyphicons_016_bin.png")" />
+                </a>
+                }
+            </td>
+        </tr>
+    }
+    </table>
+</div>

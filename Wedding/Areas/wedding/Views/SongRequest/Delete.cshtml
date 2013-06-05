@@ -1,0 +1,44 @@
+﻿@model Wedding.Models.SongRequest
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@section StyleHeader {
+    <style>
+        .display-label
+        {
+            font-weight: bold;
+        }
+        
+        .display-field
+        {
+            padding-bottom: 4px;
+        }
+    </style>
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Rsvp</legend>
+    <div class="display-label">Artist Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArtistName)
+    </div>
+    <div class="display-label">Song Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SongName)
+    </div>
+    <div class="display-label">IP Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IPAddress)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

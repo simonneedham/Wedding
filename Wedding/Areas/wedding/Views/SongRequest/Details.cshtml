@@ -1,0 +1,45 @@
+﻿@model Wedding.Models.SongRequest
+
+@{
+    ViewBag.Title = "Song Request Details";
+}
+
+@section StyleHeader {
+    <style>
+        .display-label
+        {
+            font-weight: bold;
+        }
+        
+        .display-field
+        {
+            padding-bottom: 4px;
+        }
+    </style>
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Song Request Details</legend>
+
+    <div class="display-label">Artist</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArtistName)
+    </div>
+    <div class="display-label">Song</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SongName)
+    </div>
+    @if (User.IsInRole("blogger"))
+    {
+        <div class="display-label">IP Address</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.IPAddress)
+        </div>
+    }
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SongRequestId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
