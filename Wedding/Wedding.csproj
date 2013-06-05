@@ -79,7 +79,9 @@
   <ItemGroup>
     <Compile Include="AreaRegistrationContextExtensions.cs" />
     <Compile Include="Areas\wedding\Controllers\RsvpController.cs" />
+    <Compile Include="Areas\wedding\Controllers\SongRequestController.cs" />
     <Compile Include="Areas\wedding\Models\Rsvp.cs" />
+    <Compile Include="Areas\wedding\Models\SongRequest.cs" />
     <Compile Include="Areas\wedding\weddingAreaRegistration.cs" />
     <Compile Include="Areas\wedding\Controllers\AboutController.cs" />
     <Compile Include="Areas\wedding\Controllers\AccountController.cs" />
@@ -113,6 +115,10 @@
     <Compile Include="Migrations\201303091535252_AddRsvp.cs" />
     <Compile Include="Migrations\201303091535252_AddRsvp.Designer.cs">
       <DependentUpon>201303091535252_AddRsvp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306052111089_RequestSong.cs" />
+    <Compile Include="Migrations\201306052111089_RequestSong.Designer.cs">
+      <DependentUpon>201306052111089_RequestSong.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -575,6 +581,11 @@
     <Content Include="Areas\wedding\Views\Rsvp\Delete.cshtml" />
     <Content Include="Areas\wedding\Views\Rsvp\Received.cshtml" />
     <Content Include="Areas\wedding\Views\Shared\EditorTemplates\DateTimeHidden.cshtml" />
+    <Content Include="Areas\wedding\Views\SongRequest\Create.cshtml" />
+    <Content Include="Areas\wedding\Views\SongRequest\Delete.cshtml" />
+    <Content Include="Areas\wedding\Views\SongRequest\Details.cshtml" />
+    <Content Include="Areas\wedding\Views\SongRequest\Edit.cshtml" />
+    <Content Include="Areas\wedding\Views\SongRequest\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
