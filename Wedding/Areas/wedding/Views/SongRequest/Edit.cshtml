@@ -33,7 +33,10 @@
         </div>
         @Html.HiddenFor(model => model.IPAddress)
         <p>
+            @if (User.IsInRole("blogger"))
+            {
             <input type="submit" value="Save" />
+            }
         </p>
     </fieldset>
 }
