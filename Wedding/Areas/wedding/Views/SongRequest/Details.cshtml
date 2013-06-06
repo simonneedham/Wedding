@@ -40,6 +40,9 @@
     }
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.SongRequestId }) |
+    @if (User.IsInRole("blogger"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id=Model.SongRequestId })<text> | </text>
+    }
     @Html.ActionLink("Back to List", "Index")
 </p>
