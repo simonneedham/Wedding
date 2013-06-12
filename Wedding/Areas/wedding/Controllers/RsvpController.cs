@@ -32,6 +32,7 @@ namespace Wedding.Areas.wedding.Controllers
         //
         // GET: /wedding/Rsvp/Create
         [CompressFilter]
+        [Authorize(Roles = "Blogger")]
         public ActionResult Create()
         {
             return View();
@@ -40,6 +41,7 @@ namespace Wedding.Areas.wedding.Controllers
         //
         // POST: /wedding/Rsvp/Create
         [HttpPost]
+        [Authorize(Roles = "Blogger")]
         public ActionResult Create(Rsvp rsvp)
         {
             if (ModelState.IsValid)
@@ -53,6 +55,7 @@ namespace Wedding.Areas.wedding.Controllers
         }
 
         [CompressFilter]
+        [Authorize(Roles = "Blogger")]
         public ActionResult Received(Rsvp rsvp)
         {
             return View(rsvp);
@@ -96,6 +99,7 @@ namespace Wedding.Areas.wedding.Controllers
         //
         // POST: /wedding/Rsvp/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Blogger")]
         public ActionResult DeleteConfirmed(int id)
         {            
             Rsvp rsvp = _db.Rsvp.Find(id);
